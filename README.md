@@ -8,4 +8,4 @@ Hallar perímetro y área de las siguientes figuras geométricas utilizando here
   - [Calculadora de área](http://es.onlinemschool.com/math/assistance/figures_area/triangle/)
 - Circulo 
   - [Fórmula área](https://www.universoformulas.com/matematicas/geometria/area-circulo/)
-  - [Perímetro área](https://www.universoformulas.com/matematicas/geometria/perimetro-circulo/)
+  - [Fórmula perímetro](https://www.universoformulas.com/matematicas/geometria/perimetro-circulo/)
