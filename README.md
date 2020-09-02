@@ -1,2 +1,2 @@
-# HerenciaEjemplo
-Un ejemplo de herencia simple con figuras geométricas
+#### HerenciaEjemplo
+> Un ejemplo de herencia simple con figuras geométricas
