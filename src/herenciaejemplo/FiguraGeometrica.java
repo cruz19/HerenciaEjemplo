@@ -79,16 +79,21 @@ public abstract class FiguraGeometrica {
     
     /**
      * Método abstracto que se encarga de calcular y modificar el área de la figura
-     * con los atributos de los que disponga
+     * con los atributos de los que disponga la clase
      */
     public abstract void calcularArea();
     
     /**
      * Método abstracto que se encarga de calcular y modificar el perímetro de la figura
-     * con los atributos de los que disponga
+     * con los atributos de los que disponga la clase
      */
     public abstract void calcularPerimetro();
 
+    /**
+     * Se encarga de llamar los métodos que calculan el área y el perímetro
+     * y mostrar sus valores
+     * @return String
+     */
     @Override
     public String toString() {
         calcularArea();

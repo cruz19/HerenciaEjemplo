@@ -30,7 +30,7 @@ public class HerenciaEjemplo {
                         double lado = inputDouble("Ingrese el valor de cualquier lado del cuadrado: ");
                         Cuadrado cuadrado = new Cuadrado(lado);
                         System.out.println("\tResultado");
-                        System.out.println(cuadrado); 
+                        System.out.println(cuadrado);
                     break;
                     case 2: 
                         System.out.println("\n\tRECTÁNGULO");
@@ -41,10 +41,22 @@ public class HerenciaEjemplo {
                         System.out.println(rectangulo);
                     break;
                     case 3:
-                        System.out.println("\n\tTRIÁNGULO");
-                        double lado1 = inputDouble("Ingrese el valor del lado 1: ");
-                        double lado2 = inputDouble("Ingrese el valor del lado 2: ");
-                        double lado3 = inputDouble("Ingrese el valor del lado 3: ");
+                        double lado1, lado2, lado3;
+                        boolean ladosValidos = true;
+                        do{
+                            // Pedir valores de los tres lados del triángulo
+                            System.out.println("\n\tTRIÁNGULO");
+                            lado1 = inputDouble("Ingrese el valor del lado 1: ");
+                            lado2 = inputDouble("Ingrese el valor del lado 2: ");
+                            lado3 = inputDouble("Ingrese el valor del lado 3: ");
+
+                            // Validación de los tres lados del triángulo
+                            if (lado1 >= (lado2 + lado3) || lado3 >= (lado2 + lado1) || lado2 >= (lado1 + lado3)) {
+                                System.out.println("\n***Los valores de los lados no corresponden a un trángulo***");
+                                ladosValidos = false;
+                            }
+                        }while(!ladosValidos);
+                        
                         Triangulo triangulo = new Triangulo(lado1, lado2, lado3);
                         System.out.println("\tResultado");
                         System.out.println("Tipo triángulo: " + triangulo.getTipoTriangulo().getNombre());
@@ -68,6 +80,9 @@ public class HerenciaEjemplo {
         }while(opcion != 5);
     }
     
+    /**
+     * Se encarga de mostrar el menú de opciones
+     */
     private static void mostrarMenu(){
         System.out.println("\tFIGURAS GEOMÉTRICAS: Perímetro y Área\n");
         System.out.println("1. Cuadrado");
@@ -78,15 +93,24 @@ public class HerenciaEjemplo {
         System.out.print("Ingrese una opción: ");
     }
     
-    private static double inputDouble(String label)
+    /**
+     * Se encarga de capturar el posible error de entrada del scanner y retornar el valor double
+     * @param mensaje Mensaje que acompañara la entrada del valor double
+     * @return double
+     */
+    private static double inputDouble(String mensaje)
     {
         while (true)
         {
-            System.out.print(label);
+            System.out.print(mensaje);
             try
             {
                 double value = sc.nextDouble();
-                return value;
+                if (value <= 0){
+                    System.out.println("***No se aceptan números negativos ni el cero***");
+                } else {
+                    return value;
+                }
             } 
             catch (java.util.InputMismatchException e)
             {

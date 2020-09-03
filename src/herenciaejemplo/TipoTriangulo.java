@@ -9,7 +9,7 @@ package herenciaejemplo;
  */
 public enum TipoTriangulo {
     /**
-     * Enumeración
+     * Enumeración de los tipos de triángulos
      */
     EQUILATERO("Equilátero"),
     ISOSCELES("Isósceles"),

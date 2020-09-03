@@ -37,6 +37,10 @@ public class Triangulo extends FiguraGeometrica {
         this.lado3 = lado3;
     }
 
+    /**
+     * Método sobrescrito
+     * Se encarga de calcular y establecer el área del triángulo
+     */
     @Override
     public void calcularArea() {
         double semiperimetro = (lado1 + lado2 + lado3) / 2;
@@ -44,6 +48,10 @@ public class Triangulo extends FiguraGeometrica {
         this.setArea(areaTriangulo);
     }
 
+    /**
+     * Método sobrescrito
+     * Se encarga de calcular y establecer el perímetro del triángulo
+     */
     @Override
     public void calcularPerimetro() {
         double perimetroTriangulo = lado1 + lado2 + lado3;

@@ -8,7 +8,7 @@ package herenciaejemplo;
  */
 public class Cuadrado extends FiguraGeometrica{
     /**
-     * Lado del cuadrado
+     * Representa cualquier lado del cuadrado
      */
     private double lado;
     
