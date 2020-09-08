@@ -2,7 +2,6 @@ package herenciaejemplo;
 
 /**
  * @author Steven Cruz
- * @author Daniel Zambrano
  * @version 1.0.0
  * @since 03/09/2020
  */
@@ -23,7 +22,7 @@ public class Circulo extends FiguraGeometrica {
     
     /**
      * Método sobrescrito
-     * Se encarga de calcular y establecer el área del círculo
+     * Se encarga de calcular y establecer el área del círculo utilizando su radio
     */
     @Override
     public void calcularArea() {
@@ -33,7 +32,7 @@ public class Circulo extends FiguraGeometrica {
 
     /**
      * Método sobrescrito
-     * Se encarga de calcular y establecer el perímetro del círculo
+     * Se encarga de calcular y establecer el perímetro del círculo utilizando su radio
     */
     @Override
     public void calcularPerimetro() {
@@ -55,5 +54,15 @@ public class Circulo extends FiguraGeometrica {
      */
     public void setRadio(double radio) {
         this.radio = radio;
+    }
+
+    /**
+     * Método sobrescrito de la clase Object que retorna los atributos de la clase en un String
+     * Al final se agrega el método toString de la clase padre FiguraGeometrica
+     * @return String
+    */
+    @Override
+    public String toString() {
+        return "Circulo{" + "radio=" + radio + '}' + "\n" + super.toString();
     }
 }

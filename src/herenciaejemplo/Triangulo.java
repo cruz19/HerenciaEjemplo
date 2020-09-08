@@ -2,7 +2,6 @@ package herenciaejemplo;
 
 /**
  * @author Steven Cruz
- * @author Daniel Zambrano
  * @version 1.0.0
  * @since 03/09/2020
  */
@@ -35,11 +34,13 @@ public class Triangulo extends FiguraGeometrica {
         this.lado1 = lado1;
         this.lado2 = lado2;
         this.lado3 = lado3;
+        // cuando ya se tienen los valores de los lados del triángulo se puede definir el tipo de triángulo
+        definirTipoTriangulo();
     }
 
     /**
      * Método sobrescrito
-     * Se encarga de calcular y establecer el área del triángulo
+     * Se encarga de calcular y establecer el área del triángulo utilizando la fórmula de Herón
      */
     @Override
     public void calcularArea() {
@@ -50,7 +51,8 @@ public class Triangulo extends FiguraGeometrica {
 
     /**
      * Método sobrescrito
-     * Se encarga de calcular y establecer el perímetro del triángulo
+     * Se encarga de calcular y establecer el perímetro del triángulo utilizando los tres lados
+     * del triángulo
      */
     @Override
     public void calcularPerimetro() {
@@ -105,20 +107,27 @@ public class Triangulo extends FiguraGeometrica {
     public void setLado3(double lado3) {
         this.lado3 = lado3;
     }
+    
+    /**
+     * Se encarga de definir el tipo de triángulo dependiendo de sus lados
+     */
+    
+    private void definirTipoTriangulo(){
+        if (lado1 == lado2 && lado1 == lado3){
+            tipoTriangulo = TipoTriangulo.EQUILATERO;
+        } else if (lado1 != lado2 && lado2 != lado3 && lado3 != lado1){
+            tipoTriangulo = TipoTriangulo.ESCALENO;
+        } else if (lado1 == lado2 || lado3 == lado1 || lado3 == lado2){
+            tipoTriangulo = TipoTriangulo.ISOSCELES;
+        }
+    }
 
     /**
      * Se encarga de retornar el tipo de triángulo
      * @return tipo de triángulo
      */
     public TipoTriangulo getTipoTriangulo() {
-        if (lado1 == lado2 && lado1 == lado3){
-            return TipoTriangulo.EQUILATERO;
-        } else if (lado1 != lado2 && lado2 != lado3 && lado3 != lado1){
-            return TipoTriangulo.ESCALENO;
-        } else if (lado1 == lado2 || lado3 == lado1 || lado3 == lado2){
-            return TipoTriangulo.ISOSCELES;
-        }
-        return null;
+        return tipoTriangulo;
     }
 
     /**
@@ -127,5 +136,16 @@ public class Triangulo extends FiguraGeometrica {
      */
     public void setTipoTriangulo(TipoTriangulo tipoTriangulo) {
         this.tipoTriangulo = tipoTriangulo;
+    }
+
+    /**
+     * Método sobrescrito de la clase Object que retorna los atributos de la clase en un String
+     * Al final se agrega el método toString de la clase padre FiguraGeometrica
+     * @return String
+    */
+    @Override
+    public String toString() {
+        return "Triangulo{" + "lado1=" + lado1 + ", lado2=" + lado2 + ", lado3=" + lado3 + 
+                ", tipoTriangulo=" + tipoTriangulo.getNombre() + '}' + "\n" + super.toString();
     }
 }

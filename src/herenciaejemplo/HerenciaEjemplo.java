@@ -3,9 +3,9 @@ package herenciaejemplo;
 import java.util.Scanner;
 
 /**
- *
  * @author Steven Cruz
- * @author Daniel Zambrano
+ * @version 1.0.0
+ * @since 03/09/2020
  */
 public class HerenciaEjemplo {
     
@@ -18,7 +18,6 @@ public class HerenciaEjemplo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         byte opcion = 0;
         do{
             mostrarMenu();
@@ -29,7 +28,7 @@ public class HerenciaEjemplo {
                         System.out.println("\n\tCUADRADO");
                         double lado = inputDouble("Ingrese el valor de cualquier lado del cuadrado: ");
                         Cuadrado cuadrado = new Cuadrado(lado);
-                        System.out.println("\tResultado");
+                        System.out.println("\n> Resultados");
                         System.out.println(cuadrado);
                     break;
                     case 2: 
@@ -37,36 +36,34 @@ public class HerenciaEjemplo {
                         double base = inputDouble("Ingrese el valor de la base: ");
                         double altura = inputDouble("Ingrese el valor de la altura: ");
                         Rectangulo rectangulo = new Rectangulo(base, altura);
-                        System.out.println("\tResultado");
+                        System.out.println("\n> Resultados");
                         System.out.println(rectangulo);
                     break;
                     case 3:
                         double lado1, lado2, lado3;
-                        boolean ladosValidos = true;
-                        do{
+                        
+                        while(true){
                             // Pedir valores de los tres lados del triángulo
                             System.out.println("\n\tTRIÁNGULO");
                             lado1 = inputDouble("Ingrese el valor del lado 1: ");
                             lado2 = inputDouble("Ingrese el valor del lado 2: ");
                             lado3 = inputDouble("Ingrese el valor del lado 3: ");
-
-                            // Validación de los tres lados del triángulo
+                            // Validación de los tres lados del triángul
                             if (lado1 >= (lado2 + lado3) || lado3 >= (lado2 + lado1) || lado2 >= (lado1 + lado3)) {
                                 System.out.println("\n***Los valores de los lados no corresponden a un trángulo***");
-                                ladosValidos = false;
+                            } else {
+                                break;
                             }
-                        }while(!ladosValidos);
-                        
+                        }
                         Triangulo triangulo = new Triangulo(lado1, lado2, lado3);
-                        System.out.println("\tResultado");
-                        System.out.println("Tipo triángulo: " + triangulo.getTipoTriangulo().getNombre());
+                        System.out.println("\n> Resultados");
                         System.out.println(triangulo);
                     break;
                     case 4: 
                         System.out.println("\n\tCÍRCULO");
                         double radio = inputDouble("Ingrese el valor del radio: ");
                         Circulo circulo = new Circulo(radio);
-                        System.out.println("\tResultado");
+                        System.out.println("\n> Resultados");
                         System.out.println(circulo);
                     break;
                     default:
@@ -76,7 +73,7 @@ public class HerenciaEjemplo {
                 System.out.println("\n***No es un opción válida***");
                 sc.nextLine();
             }
-            System.out.println("\n---------------------------------------------------------------------------\n");
+            System.out.println("\n------------------------------------------------------------------------------------------\n");
         }while(opcion != 5);
     }
     
@@ -94,8 +91,9 @@ public class HerenciaEjemplo {
     }
     
     /**
-     * Se encarga de capturar el posible error de entrada del scanner y retornar el valor double
-     * @param mensaje Mensaje que acompañara la entrada del valor double
+     * Se encarga de obtener la entrada por consola de un valor double
+     * Si la entrada no es un valor double, captura la excepción y repite el proceso 
+     * @param mensaje Mensaje que acompañara la entrada del valor double (label)
      * @return double
      */
     private static double inputDouble(String mensaje)

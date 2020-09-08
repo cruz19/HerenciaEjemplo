@@ -3,7 +3,6 @@ package herenciaejemplo;
 /**
  * Enumeración de tipos de triángulos
  * @author Steven Cruz
- * @author Daniel Zambrano
  * @version 1.0.0
  * @since 03/09/2020
  */

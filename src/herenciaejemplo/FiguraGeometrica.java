@@ -2,7 +2,6 @@ package herenciaejemplo;
 
 /**
  * @author Steven Cruz
- * @author Daniel Zambrano
  * @version 1.0.0
  * @since 03/09/2020
  */
@@ -79,19 +78,19 @@ public abstract class FiguraGeometrica {
     
     /**
      * Método abstracto que se encarga de calcular y modificar el área de la figura
-     * con los atributos de los que disponga la clase
+     * con los atributos de los que disponga la subclase
      */
     public abstract void calcularArea();
     
     /**
      * Método abstracto que se encarga de calcular y modificar el perímetro de la figura
-     * con los atributos de los que disponga la clase
+     * con los atributos de los que disponga la subclase
      */
     public abstract void calcularPerimetro();
 
     /**
-     * Se encarga de llamar los métodos que calculan el área y el perímetro
-     * y mostrar sus valores
+     * Método sobrescrito de la clase Object que retorna los atributos de la clase en un String
+     * Se encarga también de invocar los métodos para calcular el área y perímetro de cada figura
      * @return String
      */
     @Override
